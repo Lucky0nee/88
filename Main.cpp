@@ -13,6 +13,7 @@ protected:
 	string name;
 	long years;
 	long height;
+	long estimates;
 	long id;
 
 public:
@@ -31,9 +32,12 @@ public:
 	}
 };
 
-// Адаптований клієнт
+// Адаптований клієнт 
 class StudentInformation {
 public:
+	long GetEstimates(long id) const {
+		return 2 + rand() % 10;
+	}
 	long GetHeight(long id) const {
 		return 1600 + rand() % 200;
 	}
@@ -51,7 +55,9 @@ public:
 	void Show() {
 		cout << "\n============================\n";
 		People::Show();
+		estimates = pInformation->GetEstimates(id);
 		height = pInformation->GetHeight(id);
+		cout << "\nEstimates: " << estimates << endl;
 		cout << "\nHeight: " << height << " cm" << endl;
 	}
 };
